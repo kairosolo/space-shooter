@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://3wuevqra8cjw"]
+
+[ext_resource type="Texture2D" uid="uid://cq7qo874hhhyh" path="res://Kenney Space Shooter/PNG/Meteors/meteorBrown_big1.png" id="1_5civa"]
+[ext_resource type="Script" uid="uid://c3gmj0bgl0tc4" path="res://Scenes/meteor.gd" id="1_wm1ig"]
+[ext_resource type="Texture2D" uid="uid://qbc1kbn7yxin" path="res://Kenney Space Shooter/PNG/Meteors/meteorBrown_big2.png" id="3_85ywr"]
+[ext_resource type="Texture2D" uid="uid://c8agajrvmyryh" path="res://Kenney Space Shooter/PNG/Meteors/meteorBrown_big3.png" id="4_f7fog"]
+[ext_resource type="Texture2D" uid="uid://daif0slyovamf" path="res://Kenney Space Shooter/PNG/Meteors/meteorBrown_big4.png" id="5_n0ue4"]
+[ext_resource type="AudioStream" uid="uid://cf7plp4v57juo" path="res://Kenney Space Shooter/Bonus/sfx_destroy.mp3" id="6_d1487"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7n77a"]
+radius = 38.013157
+
+[node name="Meteor" type="Area2D" unique_id=720898500]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_wm1ig")
+textureList = Array[Texture2D]([ExtResource("1_5civa"), ExtResource("3_85ywr"), ExtResource("4_f7fog"), ExtResource("5_n0ue4")])
+minSpeed = 200
+maxSpeed = 400
+
+[node name="MeteorImage" type="Sprite2D" parent="." unique_id=2060269218]
+texture = ExtResource("1_5civa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=265260005]
+position = Vector2(-1, -2)
+shape = SubResource("CircleShape2D_7n77a")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=1113487127]
+stream = ExtResource("6_d1487")
+volume_db = -20.628
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

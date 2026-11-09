@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b30pu5xfw6i3t"]
+
+[ext_resource type="PackedScene" uid="uid://brc66bh8cu61q" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://3wuevqra8cjw" path="res://Scenes/meteor.tscn" id="2_k5f4k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k5f4k"]
+load_path = "res://.godot/imported/darkPurple.png-ba77b8efd0de29e528b7914622b88390.ctex"
+
+[node name="Level" type="Node2D" unique_id=637540691]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1052096441]
+texture_repeat = 2
+position = Vector2(-35, -21)
+scale = Vector2(1.751, 1)
+texture = SubResource("CompressedTexture2D_k5f4k")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 769.62, 788.41)
+
+[node name="Player" parent="." unique_id=1144077366 instance=ExtResource("1_tumq0")]
+position = Vector2(549, 583)
+
+[node name="Meteor" parent="." unique_id=1044074128 instance=ExtResource("2_k5f4k")]
+position = Vector2(555, 75)

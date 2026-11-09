@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cf7plp4v57juo"
+path="res://.godot/imported/sfx_destroy.mp3-090b4719a939fe7469f18ea6cb39404c.mp3str"
+
+[deps]
+
+source_file="res://Kenney Space Shooter/Bonus/sfx_destroy.mp3"
+dest_files=["res://.godot/imported/sfx_destroy.mp3-090b4719a939fe7469f18ea6cb39404c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

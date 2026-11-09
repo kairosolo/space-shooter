@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://brc66bh8cu61q"]
+
+[ext_resource type="Script" uid="uid://piynmemgrsju" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cx2i3vq7f7qsu" path="res://Kenney Space Shooter/PNG/playerShip1_orange.png" id="1_v0iea"]
+[ext_resource type="AudioStream" uid="uid://casxl4bth7hns" path="res://Kenney Space Shooter/Bonus/sfx_laser2.ogg" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bo2v0gpoh5i3q" path="res://Kenney Space Shooter/PNG/light.png" id="4_vgqql"]
+
+[sub_resource type="Gradient" id="Gradient_6t5aa"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6t5aa"]
+gradient = SubResource("Gradient_6t5aa")
+
+[sub_resource type="Curve" id="Curve_6t5aa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6t5aa"]
+curve = SubResource("Curve_6t5aa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7n77a"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 20, 0)
+scale_min = 10.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_6t5aa")
+color = Color(0.9936257, 0.69990253, 0.64146286, 1)
+color_ramp = SubResource("GradientTexture1D_6t5aa")
+
+[node name="Player" type="CharacterBody2D" unique_id=1372580054]
+visibility_layer = 6
+script = ExtResource("1_cvnsp")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=262352466]
+energy = 0.5
+texture = ExtResource("4_vgqql")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=66821897]
+position = Vector2(0, 34)
+amount = 30
+lifetime = 0.25
+process_material = SubResource("ParticleProcessMaterial_7n77a")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=1304015218]
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=660981273]
+polygon = PackedVector2Array(-8, -37, 7, -37, 11, -11, 35, 2, 47, -7, 45, 24, 14, 26, 1, 37, -13, 27, -44, 21, -48, -5, -35, 1, -13, -11)
+
+[node name="FirePoint" type="Marker2D" parent="." unique_id=941510560]
+position = Vector2(0, -46)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1077939555]
+wait_time = 0.5
+autostart = true
+
+[node name="LaserSFX" type="AudioStreamPlayer2D" parent="." unique_id=770861371]
+stream = ExtResource("3_6t5aa")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]

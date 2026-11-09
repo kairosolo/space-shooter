@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://nmufo1sy8c4e"]
+
+[ext_resource type="Script" uid="uid://dkq0l36mcap7v" path="res://Scenes/ui.gd" id="1_nf4gj"]
+[ext_resource type="FontFile" uid="uid://df67lkumvjmyd" path="res://Kenney Space Shooter/Bonus/kenvector_future.ttf" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://c8nx6nrcqgfu7" path="res://Kenney Space Shooter/PNG/UI/playerLife1_orange.png" id="2_nf4gj"]
+
+[node name="UI" type="CanvasLayer" unique_id=559547240 groups=["ui"]]
+script = ExtResource("1_nf4gj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1677790187]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_right = 53.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1291780762]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1878372436]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qdvrb")
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1158313481]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qdvrb")
+theme_override_font_sizes/font_size = 25
+text = "Combo"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=26719296]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 144.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=1639207328]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1020726226]
+layout_mode = 2
+texture = ExtResource("2_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1797672191]
+layout_mode = 2
+texture = ExtResource("2_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1555966045]
+layout_mode = 2
+texture = ExtResource("2_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=566595334]
+layout_mode = 2
+texture = ExtResource("2_nf4gj")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=125964360]
+layout_mode = 2
+texture = ExtResource("2_nf4gj")
+stretch_mode = 2
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1912051562]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

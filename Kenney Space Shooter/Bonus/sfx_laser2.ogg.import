@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://casxl4bth7hns"
+path="res://.godot/imported/sfx_laser2.ogg-03c6bb6ab825502079d9a15810e8ab50.oggvorbisstr"
+
+[deps]
+
+source_file="res://Kenney Space Shooter/Bonus/sfx_laser2.ogg"
+dest_files=["res://.godot/imported/sfx_laser2.ogg-03c6bb6ab825502079d9a15810e8ab50.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
